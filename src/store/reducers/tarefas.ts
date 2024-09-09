@@ -4,32 +4,34 @@ import * as enums from '../../utils/enums/tarefa'
 
 const tarefasSlice = createSlice({
   name: 'tarefas',
-  initialState: [
-    new Tarefa(
-      'Estudar JavaScript',
-      enums.Prioridade.IMPORTANTE,
-      enums.Status.PENDENTE,
-      '',
-      1
-    ),
-    new Tarefa(
-      'Estudar TypeScript',
-      enums.Prioridade.URGENTE,
-      enums.Status.CONCLUIDA,
-      'Rever aula dois do módulo',
-      2
-    ),
-    new Tarefa(
-      'Estudar React',
-      enums.Prioridade.NORMAL,
-      enums.Status.PENDENTE,
-      'Praticar o useEffect',
-      3
-    )
-  ],
+  initialState: {
+    itens: [
+      new Tarefa(
+        'Estudar JavaScript',
+        enums.Prioridade.IMPORTANTE,
+        enums.Status.PENDENTE,
+        '',
+        1
+      ),
+      new Tarefa(
+        'Estudar TypeScript',
+        enums.Prioridade.URGENTE,
+        enums.Status.CONCLUIDA,
+        'Rever aula dois do módulo',
+        2
+      ),
+      new Tarefa(
+        'Estudar React',
+        enums.Prioridade.NORMAL,
+        enums.Status.PENDENTE,
+        'Praticar o useEffect',
+        3
+      )
+    ]
+  },
   reducers: {
     remover: (state, action: PayloadAction<number>) => {
-      state = state.filter((tarefa) => tarefa.id !== action.payload)
+      state.itens = state.itens.filter((tarefa) => tarefa.id !== action.payload)
     }
   }
 })
