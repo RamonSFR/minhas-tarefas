@@ -16,21 +16,19 @@ const ListaDeTarefas = () => {
       tarefasFiltradas = tarefasFiltradas.filter(
         (item) => item.titulo.toLowerCase().search(termo.toLowerCase()) >= 0
       )
-
-      if (criterio === 'prioridade') {
-        tarefasFiltradas = tarefasFiltradas.filter(
-          (item) => item.prioridade === valor
-        )
-      } else if (criterio === 'status') {
-        tarefasFiltradas = tarefasFiltradas.filter(
-          (item) => item.status === valor
-        )
-      }
-
-      return tarefasFiltradas
     }
 
-    return itens
+    if (criterio === 'prioridade') {
+      tarefasFiltradas = tarefasFiltradas.filter(
+        (item) => item.prioridade === valor
+      )
+    } else if (criterio === 'status') {
+      tarefasFiltradas = tarefasFiltradas.filter(
+        (item) => item.status === valor
+      )
+    }
+
+    return tarefasFiltradas
   }
 
   return (

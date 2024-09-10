@@ -28,6 +28,13 @@ const initialState: TarefasState = {
       prioridade: enums.Prioridade.IMPORTANTE,
       status: enums.Status.PENDENTE,
       descricao: ''
+    },
+    {
+      id: 4,
+      titulo: 'Comprar pão',
+      prioridade: enums.Prioridade.URGENTE,
+      status: enums.Status.PENDENTE,
+      descricao: 'Comprar um pão de queijo'
     }
   ]
 }
