@@ -11,8 +11,8 @@ const initialState: TarefasState = {
     {
       id: 1,
       titulo: 'Estudar JavaScript',
-      prioridade: enums.Prioridade.IMPORTANTE,
-      status: enums.Status.PENDENTE,
+      prioridade: enums.Prioridade.NORMAL,
+      status: enums.Status.CONCLUIDA,
       descricao: 'Ver aula 5 do módulo da EBAC'
     },
     {
