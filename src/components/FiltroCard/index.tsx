@@ -1,13 +1,15 @@
 import * as S from './styles'
 
 export type Props = {
-  ativo?: boolean
+  active?: boolean
+  counter: number
+  subtitle: string
 }
 
-const FiltroCard = (props: Props) => (
-  <S.Card ativo={props.ativo}>
-    <S.Contador>3</S.Contador>
-    <S.Label>pendentes</S.Label>
+const FiltroCard = ({ counter, subtitle, active }: Props) => (
+  <S.Card active={active}>
+    <S.Contador>{counter}</S.Contador>
+    <S.Label>{subtitle}</S.Label>
   </S.Card>
 )
 
