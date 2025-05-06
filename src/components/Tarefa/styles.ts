@@ -1,12 +1,32 @@
 import styled from 'styled-components'
 import variables from '../../styles/variables'
 
+import * as enums from '../../utils/enums/Task'
+
+type TagProps = {
+  priority?: enums.Priority
+  status?: enums.Status
+  parameter: 'status' | 'priority'
+}
+
+function returnBgColor(props: TagProps) {
+  if (props.parameter === 'priority') {
+    if (props.priority === enums.Priority.URGENTE) return variables.red
+    if (props.priority === enums.Priority.IMPORTANTE) return variables.yellow2
+  } else if (props.parameter === 'status') {
+    if (props.status === enums.Status.CONCLUIDA) return variables.green
+    if (props.status === enums.Status.PENDENTE) return variables.yellow1
+  }
+
+  return '#ccc'
+}
+
 export const Card = styled.div`
   padding: 16px;
   margin-bottom: 32px;
   border-radius: 16px;
   background-color: #fcfcfc;
-  box-shadow: 0px 4px 4px rgba(0,0,0,0.25);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 
 export const Title = styled.h3`
@@ -15,7 +35,7 @@ export const Title = styled.h3`
   font-weight: bold;
 `
 
-export const Tag = styled.span`
+export const Tag = styled.span<TagProps>`
   display: inline-block;
   padding: 4px 8px;
   margin-right: 16px;
@@ -23,7 +43,7 @@ export const Tag = styled.span`
   border-radius: 8px;
   font-weight: bold;
   color: #fff;
-  background-color: #e1a32a;
+  background-color: ${(props) => returnBgColor(props)};
 `
 
 export const Description = styled.textarea`
@@ -40,7 +60,7 @@ export const Description = styled.textarea`
 `
 
 export const ActionBar = styled.div`
-  border-top: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   padding-top: 16px;
 `
 
