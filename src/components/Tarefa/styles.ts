@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import variables from '../../styles/variables'
 
 export const Card = styled.div`
   padding: 16px;
@@ -53,4 +54,12 @@ export const Button = styled.button`
   cursor: pointer;
   background-color: #2f3640;
   color: #fff;
+`
+
+export const SaveButton = styled(Button)`
+  background-color: ${variables.green};
+`
+
+export const CancelButton = styled(Button)`
+  background-color: ${variables.red};
 `

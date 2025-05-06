@@ -21,12 +21,12 @@ const Tarefa = ({ description, priority, status, title }: Props) => {
         {!isEditing ? (
           <>
             <S.Button onClick={() => setIsEditing(true)}>Editar</S.Button>
-            <S.Button>Remover</S.Button>
+            <S.CancelButton>Remover</S.CancelButton>
           </>
         ) : (
           <>
-            <S.Button onClick={() => setIsEditing(false)}>Salvar</S.Button>
-            <S.Button onClick={() => setIsEditing(false)}>Cancelar</S.Button>
+            <S.SaveButton onClick={() => setIsEditing(false)}>Salvar</S.SaveButton>
+            <S.CancelButton onClick={() => setIsEditing(false)}>Cancelar</S.CancelButton>
           </>
         )}
       </S.ActionBar>
