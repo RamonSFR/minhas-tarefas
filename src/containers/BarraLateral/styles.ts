@@ -13,11 +13,3 @@ export const Filtros = styled.div`
   margin-top: 16px;
 `
 
-export const Campo = styled.input`
-  padding: 8px;
-  border-radius: 8px;
-  font-weight: bold;
-  width: 100%;
-  border: 1px solid #666666;
-  background-color: #fff;
-`

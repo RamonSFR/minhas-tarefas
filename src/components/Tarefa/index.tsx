@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 
 import * as S from './styles'
+import { SaveButton } from '../../styles'
 import { remove, edit } from '../../store/reducers/tasks'
 import type Task from '../../models/Task'
 
@@ -68,7 +69,9 @@ const Tarefa = ({
           </>
         ) : (
           <>
-            <S.SaveButton onClick={() => saveDescription()}>Salvar</S.SaveButton>
+            <SaveButton onClick={() => saveDescription()}>
+              Salvar
+            </SaveButton>
             <S.CancelButton onClick={() => resetDescription()}>
               Cancelar
             </S.CancelButton>
