@@ -3,7 +3,7 @@ import Form from "../../containers/Form"
 
 const Cadastro = () => (
   <>
-    <BarraLateral />
+    <BarraLateral showFilters={false} />
     <Form />
   </>
 )
