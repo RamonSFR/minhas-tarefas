@@ -1,9 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import FiltroCard from '../../components/FiltroCard'
 import * as S from './styles'
 import { setTerm } from '../../store/reducers/filter'
 import type { RootReducer } from '../../store'
+import FiltroCard from '../../components/FiltroCard'
+import * as enums from '../../utils/enums/Task'
 
 const BarraLateral = () => {
   const dispatch = useDispatch()
@@ -11,14 +12,39 @@ const BarraLateral = () => {
 
   return (
     <S.Aside>
-      <S.Campo type="text" placeholder="Buscar" value={term} onChange={(e) => dispatch(setTerm(e.target.value))}/>
+      <S.Campo
+        type="text"
+        placeholder="Buscar"
+        value={term}
+        onChange={(e) => dispatch(setTerm(e.target.value))}
+      />
       <S.Filtros>
-        <FiltroCard subtitle="pendentes" counter={1} />
-        <FiltroCard subtitle="concluídas" counter={5} />
-        <FiltroCard subtitle="urgentes" counter={3} />
-        <FiltroCard subtitle="importantes" counter={5} />
-        <FiltroCard subtitle="normal" counter={3} />
-        <FiltroCard subtitle="todas" counter={8} active />
+        <FiltroCard
+          value={enums.Status.PENDENTE}
+          critery="status"
+          subtitle="pendentes"
+        />
+        <FiltroCard
+          value={enums.Status.CONCLUIDA}
+          critery="status"
+          subtitle="concluídas"
+        />
+        <FiltroCard
+          critery="priority"
+          value={enums.Priority.URGENTE}
+          subtitle="urgente"
+        />
+        <FiltroCard
+          critery="priority"
+          value={enums.Priority.IMPORTANTE}
+          subtitle="importante"
+        />
+        <FiltroCard
+          critery="priority"
+          value={enums.Priority.NORMAL}
+          subtitle="normal"
+        />
+        <FiltroCard critery="todas" subtitle="todas" />
       </S.Filtros>
     </S.Aside>
   )
