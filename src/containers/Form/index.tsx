@@ -64,7 +64,7 @@ const Form = () => {
           ))}
         </Options>
 
-        <SaveButton type="submit" onSubmit={(e) => dispatch()}>
+        <SaveButton type="submit">
           Cadastrar
         </SaveButton>
       </FormContainer>
