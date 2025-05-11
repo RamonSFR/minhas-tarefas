@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom'
 import { MainContainer, Title, Campo, SaveButton } from '../../styles'
 import { FormContainer, Option, Options } from './styles'
 import * as enums from '../../utils/enums/Task'
-import Task from '../../models/Task'
 import { addTask } from '../../store/reducers/tasks'
 
 const Form = () => {
@@ -18,15 +17,12 @@ const Form = () => {
   const registerTask = (event: FormEvent) => {
     event.preventDefault()
 
-    const taskToAdd = new Task(
+    dispatch(addTask({
       title,
       priority,
-      enums.Status.PENDENTE,
       description,
-      9
-    )
-
-    dispatch(addTask(taskToAdd))
+      status: enums.Status.PENDENTE
+    }))
     navigate('/')
   }
 

@@ -46,13 +46,19 @@ const tasksSlice = createSlice({
         state.itens[taskIndex] = action.payload
       }
     },
-    addTask: (state, action: PayloadAction<Task>) => {
+    addTask: (state, action: PayloadAction<Omit<Task, 'id'>>) => {
       const taskAlreadyExists = state.itens.find(
         (task) =>
           task.title.toLowerCase() === action.payload.title.toLowerCase()
       )
       if (!taskAlreadyExists) {
-        state.itens.push(action.payload)
+        const lastTask = state.itens[state.itens.length - 1]
+
+        const newTask = {
+          ...action.payload,
+          id: lastTask ? lastTask.id + 1 : 1
+        }
+        state.itens.push(newTask)
       } else {
         alert('Tarefa já existe')
       }
