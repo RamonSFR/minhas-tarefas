@@ -8,29 +8,7 @@ type TasksState = {
 }
 
 const initialState: TasksState = {
-  itens: [
-    {
-      id: 1,
-      title: 'Estudar TS',
-      priority: enums.Priority.IMPORTANTE,
-      status: enums.Status.PENDENTE,
-      description: ''
-    },
-    {
-      id: 2,
-      title: 'Comprar pão',
-      priority: enums.Priority.NORMAL,
-      status: enums.Status.CONCLUIDA,
-      description: 'ir na padaria'
-    },
-    {
-      id: 3,
-      title: 'ir para academia',
-      priority: enums.Priority.URGENTE,
-      status: enums.Status.PENDENTE,
-      description: 'treino a'
-    }
-  ]
+  itens: []
 }
 
 const tasksSlice = createSlice({
