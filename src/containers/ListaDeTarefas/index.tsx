@@ -6,14 +6,19 @@ import { Container } from './styles'
 
 const ListaDeTarefas = () => {
   const { itens } = useSelector((state: RootReducer) => state.tasks)
+  const { term } = useSelector((state: RootReducer) => state.filter)
+
+  const taskFilter = () => {
+    return itens.filter((i) => i.title.toLowerCase().search(term.toLowerCase()) >= 0)
+  }
 
   return (
     <Container>
       <p>
-        2 tarefas marcadas como: &quot;categoria&ldquo; e &quot;termo&ldquo;
+        2 tarefas marcadas como: &quot;categoria&ldquo; e &quot;{term}&ldquo;
       </p>
       <ul>
-        {itens.map((t) => (
+        {taskFilter().map((t) => (
           <li key={t.title}>
             <Tarefa
               title={t.title}
