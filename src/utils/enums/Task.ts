@@ -1,10 +1,12 @@
-export enum Priority {
+enum Priority {
   URGENTE = 'urgente',
   IMPORTANTE = 'importante',
   NORMAL = 'normal'
 }
 
-export enum Status {
+enum Status {
   PENDENTE = 'pendente',
   CONCLUIDA = 'concluída'
 }
+
+export { Priority, Status };
